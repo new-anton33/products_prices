@@ -35,7 +35,8 @@ List of prices ({{$product->title}})
         {!! Form::open([
             'method'=>'POST',
             'url' => ['admin/prices/index', $product->id],
-            'style' => 'display:inline'
+            'style' => 'display:inline',
+            'id'=>'date_filter',
             ]) !!}
         {{csrf_field()}}
         <div class="form-group">
@@ -44,16 +45,16 @@ List of prices ({{$product->title}})
                 <td><h5>Filter:</h5></td>
                 <td>
                     <div class="datepicker input-group date" data-date-format="yyyy-mm-dd">
-                    {!! Form::input('datetime-local', 'start_date', null, ['class' => 'form-control', 'placeholder'=>'Y-m-d', 'required' => 'required', 'readonly']) !!}
+                    {!! Form::input('datetime-local', 'start_date', null, ['class' => 'form-control', 'id'=>'start_date', 'placeholder'=>'Y-m-d', 'required' => 'required', 'readonly']) !!}
                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                     </div>
                 </td>
                 <td><div class="datepicker input-group date" data-date-format="yyyy-mm-dd">
-                    {!! Form::input('datetime-local', 'end_date', null, ['class' => 'form-control', 'placeholder'=>'Y-m-d', 'required' => 'required', 'readonly']) !!}
+                    {!! Form::input('datetime-local', 'end_date', null, ['class' => 'form-control', 'id'=>'end_date', 'placeholder'=>'Y-m-d', 'required' => 'required', 'readonly']) !!}
                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                     </div>
                 </td>
-                <td>{!! Form::submit('Show result', ['class' => 'btn btn-success btn-sm', 'style'=>'padding:10px']) !!}</td>
+                <td>{!! Form::submit('Show result', ['class' => 'btn btn-success btn-sm btn_submit', 'style'=>'padding:10px']) !!}</td>
             </tr>
         </table>
         </div>
